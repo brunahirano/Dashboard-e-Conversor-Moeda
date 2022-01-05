@@ -1,0 +1,33 @@
+<div class="container">
+<h2>Meu conversor</h2>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="border border-secundary p-4">
+        <h6>Digite o valor (em dólar) a ser convertido</h6>
+        <hr>
+        <div class="formulario">
+         <form [formGroup] = "formulario">
+           <div class="form-group">
+             <!--formControlName para ligar o valor digitado no input com o form -->
+             <input type="number" class="form-control form-control-sm" formControlName='valor'>
+           </div>
+           <div>
+             <button (click)="converter()" class="btn btn-outline-secondary m-2">Converter</button>
+           </div>
+         </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-6" *ngIf='estaVisivel'>
+      <div class="border border-secundary py-4">
+        <h6>Valor convertido para real:</h6>
+        <hr>
+        <h2 class="text-primary">{{valorConvertido |currency: 'BRL'}}</h2>
+
+      </div>
+    </div>
+  </div>
+</div>
